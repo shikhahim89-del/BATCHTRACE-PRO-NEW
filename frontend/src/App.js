@@ -11,7 +11,7 @@ import Login from "./pages/Login";
 function App() {
   return (
     <Router>
-      <Navbar />   
+      <Navbar />   // styling improved
 
       <Routes>
         <Route path="/" element={<Home />} />
