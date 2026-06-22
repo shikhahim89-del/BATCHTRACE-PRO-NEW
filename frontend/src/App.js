@@ -1,27 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Navbar from "./components/Navbar";   // ✅ import navbar
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
+import Showcase from "./pages/Showcase";
 
 function App() {
   return (
-    <Router>
-      <Navbar />   // styling improved
-
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/dashboard" element={<Dashboard />} />                   // routing added
-        <Route path="/login" element={<Login />} />
-      </Routes>
 
-      <Footer />
-    </Router>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/showcase" element={<Showcase />} />
+
+      </Routes>
+    </BrowserRouter>
   );
 }
 

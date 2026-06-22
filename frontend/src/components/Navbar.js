@@ -1,19 +1,27 @@
-import { Link } from "react-router-dom";
-import "./Navbar.css";
-
-function Navbar() {
+function Navbar({ setPage }) {
   return (
-    <nav className="navbar">
-      <h2>BatchTrace Pro</h2>
+    <div style={{
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "10px 20px",
+      background: "#111",
+      color: "white"
+    }}>
+      <h3>BatchTrace Pro</h3>
 
-      <div className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/login">Login</Link>
+      <div>
+        <span onClick={() => setPage("home")} style={link}>Home</span>
+        <span onClick={() => setPage("about")} style={link}>About</span>
+        <span onClick={() => setPage("dashboard")} style={link}>Dashboard</span>
+        <span onClick={() => setPage("login")} style={link}>Login</span>
       </div>
-    </nav>
+    </div>
   );
 }
 
-export default Navbar;                        // update 1
+const link = {
+  margin: "0 10px",
+  cursor: "pointer"
+};
+
+export default Navbar;

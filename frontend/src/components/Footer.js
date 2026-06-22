@@ -1,8 +1,13 @@
 function Footer() {
   return (
-    <footer className="footer">
+    <div style={{
+      position: "absolute",
+      bottom: "10px",
+      left: "10px",
+      color: "white"
+    }}>
       © 2026 BatchTrace Pro
-    </footer>
+    </div>
   );
 }
 
