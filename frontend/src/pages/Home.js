@@ -4,20 +4,28 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
+
   const [darkMode, setDarkMode] = useState(false);
+
+  // ✅ SAFE DUMMY DATA (NO FETCH = NO ERRORS)
+  const [items] = useState([
+    { id: 1, name: "Item 1" },
+    { id: 2, name: "Item 2" },
+    { id: 3, name: "Item 3" }
+  ]);
 
   return (
     <div className={darkMode ? "home-container dark" : "home-container"}>
 
       {/* TOGGLE BUTTON */}
-      <button 
+      <button
         className="toggle-btn"
         onClick={() => setDarkMode(!darkMode)}
       >
-        {darkMode ? "☀️ Light" : "🌙 Dark"}
+        {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
       </button>
 
-      {/* Background decoration */}
+      {/* BACKGROUND EFFECT */}
       <div className="bg-circle one"></div>
       <div className="bg-circle two"></div>
 
@@ -26,12 +34,10 @@ const Home = () => {
 
         {/* LEFT SIDE */}
         <div className="hero-left">
-          <h1 className="title">
-            Batch Trace Pro 🚀
-          </h1>
+          <h1 className="title">Batch Trace Pro 🚀</h1>
 
           <p className="subtitle">
-            Smart batch tracking, management and visualization system for real-time insights and control.
+            Smart batch tracking, management and visualization system.
           </p>
 
           <div className="btn-group">
@@ -45,7 +51,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* RIGHT SIDE CARD */}
+        {/* RIGHT SIDE */}
         <div className="hero-right">
           <div className="card">
 
@@ -56,15 +62,22 @@ const Home = () => {
             />
 
             <h2>Welcome 👋</h2>
+
             <p>
-              Track batches, analyze data, and manage everything in one place.
+              Track batches and manage everything in one place.
             </p>
 
-            <button onClick={() => navigate("/dashboard")} className="card-btn">
+            <button
+              onClick={() => navigate("/dashboard")}
+              className="card-btn"
+            >
               Go to Dashboard
             </button>
 
-            <button onClick={() => navigate("/showcase")} className="card-btn dark">
+            <button
+              onClick={() => navigate("/showcase")}
+              className="card-btn dark"
+            >
               Showcase
             </button>
 
@@ -72,10 +85,20 @@ const Home = () => {
         </div>
 
       </div>
+
+      {/* ✅ API SECTION (SAFE STATIC DISPLAY) */}
+      <div style={{ marginTop: "30px", textAlign: "center", color: darkMode ? "white" : "black" }}>
+        <h3>Items</h3>
+
+        {items.map((item) => (
+          <p key={item.id}>
+            {item.id} - {item.name}
+          </p>
+        ))}
+      </div>
+
     </div>
   );
 };
 
 export default Home;
-console.log("I CHANGED THIS FILE");
-<h1>TEST CHANGE</h1>
